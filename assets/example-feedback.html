@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Breakdown Opt-in Design Feedback</title>
+<style>
+  @page { size: Letter; margin: 0.55in 0.55in 0.6in; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Arial, sans-serif; color: #1c1c1c; font-size: 10.5pt; line-height: 1.45; margin: 0; }
+  h1 { font-size: 22pt; margin: 0 0 4px; letter-spacing: -0.01em; }
+  h2 { font-size: 15pt; margin: 0 0 10px; padding-bottom: 6px; border-bottom: 3px solid #8B5CF6; }
+  h3 { font-size: 11.5pt; margin: 14px 0 6px; }
+  .sub { color: #555; margin: 0 0 14px; }
+  .cover-box { border: 1px solid #ddd; border-radius: 8px; padding: 12px 16px; margin: 12px 0; background: #fafafa; }
+  .cover-box p { margin: 4px 0; }
+  .legend span { display: inline-block; margin-right: 14px; }
+  .tag { display: inline-block; font-size: 8pt; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 1px 7px; border-radius: 10px; vertical-align: 1px; white-space: nowrap; }
+  .now { background: #FDE2E0; color: #B3150F; }
+  .confirm { background: #FFF1C9; color: #7A5700; }
+  .ok { background: #DDF3E4; color: #17673A; }
+  .num { display: inline-block; min-width: 26px; height: 22px; line-height: 22px; text-align: center; border-radius: 11px; background: #FFD400; color: #000; font-weight: 800; font-size: 10pt; border: 1.5px solid #000; padding: 0 5px; margin-right: 6px; }
+  .section { page-break-before: always; }
+  .shot { display: block; max-width: 100%; max-height: 8.6in; margin: 6px auto 10px; border: 1px solid #ccc; border-radius: 6px; }
+  .fig { break-inside: avoid; page-break-inside: avoid; }
+  .row { display: flex; gap: 16px; align-items: flex-start; }
+  .row .col-img { flex: 0 0 40%; }
+  .row .col-img img { max-height: 8.6in; }
+  .row .col-txt { flex: 1; }
+  .item { border: 1px solid #e3e3e3; border-radius: 8px; padding: 8px 12px; margin: 0 0 8px; page-break-inside: avoid; }
+  .item .t { font-weight: 700; }
+  .item p { margin: 4px 0; }
+  .lbl { font-size: 8.5pt; font-weight: 700; color: #777; text-transform: uppercase; letter-spacing: .05em; }
+  .cur { background: #f4f4f4; border-left: 3px solid #bbb; padding: 4px 8px; margin: 3px 0; }
+  .new { background: #EEF8F1; border-left: 3px solid #2E9E5B; padding: 4px 8px; margin: 3px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 9.5pt; }
+  td, th { border: 1px solid #ddd; padding: 5px 7px; vertical-align: top; text-align: left; }
+  th { background: #f4f4f4; }
+  ul { margin: 4px 0 4px 18px; padding: 0; }
+  li { margin: 2px 0; }
+  .small { font-size: 9pt; color: #555; }
+  a { color: #0B57D0; }
+  .back { float: right; font-size: 8pt; text-decoration: none; color: #0B57D0; margin-left: 8px; }
+  .sum td { padding: 4px 7px; }
+  .sum a.go { font-weight: 600; text-decoration: none; }
+  .sum a.go:after { content: " →"; }
+  .sum tr.grp td { background: #1c1c1c; color: #fff; font-weight: 700; font-size: 9.5pt; letter-spacing: .02em; }
+  .sum .where { color: #666; font-size: 8.5pt; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<h1>Breakdown Opt-in: Design Feedback</h1>
+<p class="sub">Jane Doe · Example Co · "Free 5-minute breakdown" opt-in · Review date: Nov 5, 2026 · Design only (no copy or compliance audit)</p>
+
+<div class="cover-box">
+  <p><b>Page reviewed:</b> example.com/preview/page (desktop 1440px, mobile 390px)</p>
+  <p><b>Overall:</b> a strong, modern page. The dark purple look is consistent, the type pairs well, the sections are clear and the mobile layout works (no sideways scrolling, the testimonials swipe nicely, and every button goes to the form). The main issue is that <b>the form button sits too far down</b> on both desktop and mobile. Most other fixes are spacing and small polish.</p>
+</div>
+
+<h3>How to read this</h3>
+<ul>
+  <li><b>Click any row in the summary</b> to jump to that fix. Every fix has a <a href="#summary">&#8593; Back to summary</a> link.</li>
+  <li>The <span class="num">4</span> yellow numbers on the screenshots match the numbered fixes. Mobile-only fixes are <span class="num">M1</span>–<span class="num">M5</span>.</li>
+  <li class="legend"><span><span class="tag now">Change now</span> ready to apply</span><span><span class="tag confirm">Confirm first</span> needs a decision or assets</span></li>
+</ul>
+
+<h3 id="summary">Summary: click any row to jump to it</h3>
+<p><b>16 fixes:</b> 11 for the page (desktop, also applies on mobile) and 5 for mobile only.</p>
+<table class="sum">
+  <tr><th style="width:7%">#</th><th>What to fix</th><th style="width:22%">Where</th><th style="width:16%">Status</th></tr>
+  <tr class="grp"><td colspan="4">DESKTOP PAGE (also applies on mobile)</td></tr>
+  <tr><td><a href="#i1"><span class="num">1</span></a></td><td><a class="go" href="#i1">Form button is below the first screen: make the headline smaller</a></td><td class="where">Hero</td><td><span class="tag now">Change now</span></td></tr>
+  <tr><td><a href="#i2"><span class="num">2</span></a></td><td><a class="go" href="#i2">Tighten the form: large empty gaps, privacy links float mid-form</a></td><td class="where">Hero form</td><td><span class="tag now">Change now</span></td></tr>
+  <tr><td><a href="#i3"><span class="num">3</span></a></td><td><a class="go" href="#i3">Grey square in the email field looks like a broken icon</a></td><td class="where">Hero form</td><td><span class="tag now">Change now</span></td></tr>
+  <tr><td><a href="#i4"><span class="num">4</span></a></td><td><a class="go" href="#i4">Dark box with visible edges behind the form button</a></td><td class="where">Hero form</td><td><span class="tag now">Change now</span></td></tr>
+  <tr><td><a href="#i5"><span class="num">5</span></a></td><td><a class="go" href="#i5">Empty space under the bullets (left column)</a></td><td class="where">Hero</td><td><span class="tag now">Change now</span></td></tr>
+  <tr><td><a href="#i6"><span class="num">6</span></a></td><td><a class="go" href="#i6">Stray space before the comma in the top label</a></td><td class="where">Hero</td><td><span class="tag now">Change now</span></td></tr>
+  <tr><td><a href="#i7"><span class="num">7</span></a></td><td><a class="go" href="#i7">Video thumbnail catches Jane mid-word: pick a smiling frame</a></td><td class="where">Hero video</td><td><span class="tag confirm">Confirm first</span></td></tr>
+  <tr><td><a href="#i8"><span class="num">8</span></a></td><td><a class="go" href="#i8">"Featured on": use the real media logos, not text pills</a></td><td class="where">Proof strip</td><td><span class="tag confirm">Confirm first</span></td></tr>
+  <tr><td><a href="#i9"><span class="num">9</span></a></td><td><a class="go" href="#i9">Testimonial cards are different heights</a></td><td class="where">Who it's for</td><td><span class="tag now">Change now</span></td></tr>
+  <tr><td><a href="#i10"><span class="num">10</span></a></td><td><a class="go" href="#i10">Footer has no Privacy / Terms links</a></td><td class="where">Footer</td><td><span class="tag now">Change now</span></td></tr>
+  <tr><td><a href="#i11"><span class="num">11</span></a></td><td><a class="go" href="#i11">Purple look differs from her other funnels (navy + gold)</a></td><td class="where">Whole page</td><td><span class="tag confirm">Confirm first</span></td></tr>
+  <tr class="grp"><td colspan="4">MOBILE ONLY</td></tr>
+  <tr><td><a href="#m1"><span class="num">M1</span></a></td><td><a class="go" href="#m1">Headline takes 6 lines; button is ~1.6 screens down</a></td><td class="where">Hero</td><td><span class="tag now">Change now</span></td></tr>
+  <tr><td><a href="#m2"><span class="num">M2</span></a></td><td><a class="go" href="#m2">"The Example Title" disappears from the top label</a></td><td class="where">Hero</td><td><span class="tag now">Change now</span></td></tr>
+  <tr><td><a href="#m3"><span class="num">M3</span></a></td><td><a class="go" href="#m3">Jane's face only appears after the form</a></td><td class="where">Hero</td><td><span class="tag now">Change now</span></td></tr>
+  <tr><td><a href="#m4"><span class="num">M4</span></a></td><td><a class="go" href="#m4">Button text wraps to 2 lines (2 buttons)</a></td><td class="where">Form, "Inside" section</td><td><span class="tag now">Change now</span></td></tr>
+  <tr><td><a href="#m5"><span class="num">M5</span></a></td><td><a class="go" href="#m5">Proof list is centered with ragged icons</a></td><td class="where">Proof strip</td><td><span class="tag now">Change now</span></td></tr>
+</table>
+
+<h3>What already works (keep it)</h3>
+<ul>
+  <li>Clear look: one accent colour, bold display headlines, readable body text, good contrast on dark.</li>
+  <li>Every button goes to the form (#optin) on desktop and mobile.</li>
+  <li>Numbered "you'll discover" cards and the audience pills are easy to scan.</li>
+  <li>Testimonials turn into a swipe row on mobile with a "swipe for more" hint.</li>
+  <li>Earnings and testimonial disclaimers are in place.</li>
+</ul>
+
+<!-- DESKTOP HERO -->
+<div class="section">
+<div class="fig"><h2>Desktop · Hero and form</h2>
+<img class="shot" src="shots/design-feedback/d-hero.jpg" alt="Desktop hero with numbered markers"></div>
+</div>
+
+<div class="item" id="i1"><a class="back" href="#summary">&#8593; Back to summary</a><span class="num">1</span><span class="t">Form button is below the first screen</span> <span class="tag now">Change now</span>
+  <p>On a normal laptop screen (900px tall) visitors see only the First Name field; the button is at about 1,370px. The 4-line headline at ~60px uses most of the first screen.</p>
+  <ul>
+    <li>Bring the headline down to about 44–48px and let it run 2–3 lines (widen the text box).</li>
+    <li>Cut the space between the sub-headline and the video/form row.</li>
+    <li>Together with fix 2, aim for the form button inside the first screen, or at least the Email field.</li>
+  </ul>
+</div>
+
+<div class="item" id="i2"><a class="back" href="#summary">&#8593; Back to summary</a><span class="num">2</span><span class="t">Tighten the form</span> <span class="tag now">Change now</span>
+  <p>There are big empty gaps above and below the Privacy / Terms links, so they float in the middle of the form. Remove the extra gap and move that line under the button, next to "Your info is safe. We never sell your data." This also shortens the form by about 100px (helps fix 1 and M1).</p>
+</div>
+
+<div class="item" id="i3"><a class="back" href="#summary">&#8593; Back to summary</a><span class="num">3</span><span class="t">Grey square in the email field</span> <span class="tag now">Change now</span>
+  <p>Only the email field has an icon, and it shows as a plain grey square (looks broken). Remove it, or use a proper envelope icon in every field so they match.</p>
+</div>
+
+<div class="item" id="i4"><a class="back" href="#summary">&#8593; Back to summary</a><span class="num">4</span><span class="t">Box behind the form button</span> <span class="tag now">Change now</span>
+  <p>The button sits on a darker rectangle with a gradient whose straight edges show against the card. Remove that wrapper's background so only the button's glow shows.</p>
+</div>
+
+<div class="item" id="i5"><a class="back" href="#summary">&#8593; Back to summary</a><span class="num">5</span><span class="t">Empty left column</span> <span class="tag now">Change now</span>
+  <p>The left side ends after the 3 bullets while the form keeps going, leaving about 330px of empty space. Fill it with the proof items that sit under the form now (credentials and awards) as a 2×2 block, or one short testimonial. Fix 1 and 2 will also shrink the gap.</p>
+</div>
+
+<div class="item" id="i6"><a class="back" href="#summary">&#8593; Back to summary</a><span class="num">6</span><span class="t">Stray space in the top label</span> <span class="tag now">Change now</span>
+  <p>The label is built from two pieces of text, which leaves a gap before the comma. Make it one line of text (this also fixes M2).</p>
+  <div class="cur"><span class="lbl">Current</span><br>FREE BREAKDOWN FROM JANE DOE , "THE EXAMPLE TITLE"</div>
+  <div class="new"><span class="lbl">Change to</span><br>FREE BREAKDOWN FROM JANE DOE, "THE EXAMPLE TITLE"</div>
+</div>
+
+<div class="item" id="i7"><a class="back" href="#summary">&#8593; Back to summary</a><span class="num">7</span><span class="t">Video thumbnail</span> <span class="tag confirm">Confirm first</span>
+  <p>The frame catches Jane mid-word with a frown. It's the biggest image on the page and the first time visitors see her. Use a frame where she is smiling and looking at the camera, or a still from her headshot set (<code>assets/headshots/</code>). Confirm which image with the team.</p>
+</div>
+
+<div class="item" id="i8"><a class="back" href="#summary">&#8593; Back to summary</a><span class="num">8</span><span class="t">"Featured on" logos</span> <span class="tag confirm">Confirm first</span>
+  <p>The outlets are shown as text in pills, which reads like tags rather than press. Use the real logos in one colour (white or light grey) on a single row. Needs the logo files from Jane's team.</p>
+</div>
+
+<!-- DESKTOP MIDDLE -->
+<div class="section">
+<div class="fig"><h2>Desktop · "Inside" and "Who it's for"</h2>
+<img class="shot" src="shots/design-feedback/d-middle.jpg" alt="Desktop middle sections with numbered markers"></div>
+</div>
+
+<div class="item" id="i9"><a class="back" href="#summary">&#8593; Back to summary</a><span class="num">9</span><span class="t">Testimonial cards are different heights</span> <span class="tag now">Change now</span>
+  <p>The three cards end at three different heights (the middle one is tallest, the third shortest). Make all three the same height and keep the name/photo row at the bottom of each card so the names line up.</p>
+</div>
+
+<!-- DESKTOP BOTTOM -->
+<div class="section">
+<div class="fig"><h2>Desktop · Final call to action and footer</h2>
+<img class="shot" src="shots/design-feedback/d-bottom.jpg" alt="Desktop footer with numbered marker"></div>
+</div>
+
+<div class="item" id="i10"><a class="back" href="#summary">&#8593; Back to summary</a><span class="num">10</span><span class="t">Footer links</span> <span class="tag now">Change now</span>
+  <p>Privacy and Terms are only linked inside the form. Add a small link row to the footer: Privacy Policy · Terms of Service · Earnings Disclaimer.</p>
+</div>
+
+<div class="item" id="i11"><a class="back" href="#summary">&#8593; Back to summary</a><span class="num">11</span><span class="t">Brand look</span> <span class="tag confirm">Confirm first</span>
+  <p>Her live consultant funnel (example-funnel.com) uses navy + gold. This page is dark purple. If this opt-in leads into that funnel, the jump in colours may feel like a different company. Confirm with the team that purple is the intended look for this funnel (no change needed if yes).</p>
+</div>
+
+<!-- MOBILE -->
+<div class="section">
+<div class="row">
+  <div class="col-img"><img class="shot" src="shots/design-feedback/m-hero.jpg" alt="Mobile hero with numbered markers"></div>
+  <div class="col-txt">
+    <h2>Mobile · Hero and form</h2>
+
+    <div class="item" id="m1"><a class="back" href="#summary">&#8593; Back</a><span class="num">M1</span><span class="t">Headline takes 6 lines</span> <span class="tag now">Change now</span>
+      <p>The headline fills most of the first screen and the form button is about 1.6 screens down. Drop the mobile headline to about 30–32px (4 lines) and apply fix 2.</p>
+    </div>
+
+    <div class="item" id="m2"><a class="back" href="#summary">&#8593; Back</a><span class="num">M2</span><span class="t">"The Example Title" is hidden</span> <span class="tag now">Change now</span>
+      <p>On mobile the top label shows only "FREE BREAKDOWN FROM JANE DOE". Fix 6 (one line of text) brings it back; let it wrap to 2 lines.</p>
+    </div>
+
+    <div class="item" id="m3"><a class="back" href="#summary">&#8593; Back</a><span class="num">M3</span><span class="t">Jane appears only after the form</span> <span class="tag now">Change now</span>
+      <p>On mobile the video moves below the form, so visitors are asked for their details before they see who is teaching. Keep the form first, but add a small round photo of Jane next to the top label (or a short "with Jane Doe" row with photo) so her face is on the first screen.</p>
+    </div>
+
+    <div class="item" id="m4"><a class="back" href="#summary">&#8593; Back</a><span class="num">M4</span><span class="t">Button text wraps</span> <span class="tag now">Change now</span>
+      <p>"WATCH THE FREE BREAKDOWN →" breaks onto 2 lines in the form and in the "Inside" section (there the arrow floats far right). Reduce the button font size or letter spacing on mobile so it fits on one line.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section">
+<div class="row">
+  <div class="col-img"><img class="shot" src="shots/design-feedback/m-middle.jpg" alt="Mobile middle with numbered markers"></div>
+  <div class="col-txt">
+    <h2>Mobile · Proof and sections</h2>
+
+    <div class="item" id="m5"><a class="back" href="#summary">&#8593; Back</a><span class="num">M5</span><span class="t">Proof list alignment</span> <span class="tag now">Change now</span>
+      <p>The 4 proof items are centered, so the icons don't line up. Show them as a left-aligned list or a 2×2 grid (same block as fix 5).</p>
+    </div>
+
+    <div class="item"><span class="t">No other mobile issues</span> <span class="tag ok">OK</span>
+      <p>No sideways scrolling, buttons are large enough to tap, the testimonial swipe row works, and the final button and footer read well.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
