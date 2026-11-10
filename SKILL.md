@@ -1,11 +1,11 @@
 ---
 name: page-design-review
-description: Quick design-only review of one landing or funnel page (GoHighLevel preview links, live pages, any builder) on desktop and mobile — layout, spacing, hierarchy, first-screen/CTA placement, form polish, images, proof, consistency and mobile behaviour — delivered as the team's client feedback document (clickable summary of numbered fixes, yellow-marked screenshots, "Change now" / "Confirm first" tags) in HTML + PDF, saved in the client's OS folder. No scoring, no audit scale, no test opt-ins or purchases, no pixel/speed/legal checks; that's the funnel-audit skill. Use when the user says "quick design audit", "design review", "design feedback", "audit this page from a design perspective", "look at the design of this page", "give feedback on this page like we did for <client>", or shares a page URL and asks for design notes, from any folder.
+description: Quick design-only review of one landing or funnel page (GoHighLevel preview links, live pages, any builder) on desktop and mobile — layout, spacing, hierarchy, first-screen/CTA placement, form polish, images, proof, consistency and mobile behaviour — delivered as the team's client feedback document (clickable summary of numbered fixes, yellow-marked screenshots, Critical / High / Medium / Polish tiers plus "Change now" / "Confirm first" tags) in HTML + PDF, saved in the client's OS folder. No scoring, no audit scale, no test opt-ins or purchases, no pixel/speed/legal checks; that's the funnel-audit skill. Use when the user says "quick design audit", "design review", "design feedback", "audit this page from a design perspective", "look at the design of this page", "give feedback on this page like we did for <client>", or shares a page URL and asks for design notes, from any folder.
 ---
 
 # Page design review
 
-A fast, design-only pass on **one page** (or a few, one report each), written as feedback a page builder can act
+A fast, design-only pass on **one page** (or a whole funnel: then ONE consolidated report for all its pages, fixes numbered across pages and the summary grouped by page), written as feedback a page builder can act
 on. It is **not** the funnel audit: no audit scale or score, no test sign-ups or purchases, no pixel, speed or legal
 page checks, no copy rewrite. If the user wants any of that, point them to `funnel-audit`.
 
@@ -67,9 +67,29 @@ Go section by section, desktop then mobile. Only flag what a visitor would notic
 
 Also list 3–5 things that already work ("keep it"), so the builder knows what not to touch.
 
-Tag every fix **Change now** (ready to apply) or **Confirm first** (needs a decision, a fact or an asset such as
-logo files or a new photo). Never invent facts, figures, testimonials or assets; ask for them via "Confirm first"
+Give every fix a tier and an action (see "Fix buckets" below). Never invent facts, figures, testimonials or assets; ask for them via "Confirm first"
 and add the question to the client's `brain/06-open-items.md` if it's a real open question.
+
+## Fix buckets (same in funnel-audit and page-design-review, user rule 2026-11-10)
+
+Every fix gets two labels, written together like **"Critical · Confirm first"**:
+
+1. **Tier, how serious it is:**
+   - **Critical**: stops a launch, a sale or a sign-up, or shows visitors something wrong. Examples: a broken
+     button, form or checkout; a wrong price, date or link; a checkout that is live before the offer opens; a page
+     that loses sign-ups; legally wrong text. Fix before launch.
+   - **High**: the page works but clearly loses conversions or trust. Examples: no proof on a sales page, the
+     CTA/form far below the first screen, the host missing from the page, hard-to-read text, a step with nothing
+     to click.
+   - **Medium**: consistency and clarity. Examples: names, times or footers that differ between pages, a missing
+     ™, uneven card layouts.
+   - **Polish**: small visual details. Examples: lone words, spacing, glow lines, stray characters.
+2. **Action, can we do it now:** **Change now** (ready to apply) or **Confirm first** (needs a decision, a fact
+   or an asset).
+
+Summary tables list fixes Critical → High → Medium → Polish; the numbers on the screenshots stay tied to their
+position on the page. Funnel audit only: tracking/pixel items keep the chip "Highlight · not a launch blocker" and
+OK-as-is notes keep "Note · OK as is".
 
 ## 4. Mark up the screenshots
 
@@ -93,7 +113,7 @@ the content, keeping its structure and CSS:
 1. Title "<Page name>: Design Feedback", sub-line with client · page/offer · review date · "Design only".
 2. Cover box: page URL + an honest 2–3 sentence overall verdict naming the main issue.
 3. "How to read this" (summary rows are clickable, yellow numbers match screenshots, tag legend).
-4. **Summary table**: one row per fix, grouped "DESKTOP PAGE (also applies on mobile)" then "MOBILE ONLY", each
+4. **Summary table**: one row per fix with its tier and action, sorted Critical → Polish within each group, grouped "DESKTOP PAGE (also applies on mobile)" then "MOBILE ONLY", each
    row linking to its item, with Where and Status.
 5. "What already works (keep it)".
 6. One section per screenshot (page break before each): the image, then the items for that image. Each item:
