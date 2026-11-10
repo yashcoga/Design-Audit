@@ -1,6 +1,6 @@
 ---
 name: page-design-review
-description: Quick design-only review of one landing or funnel page (GoHighLevel preview links, live pages, any builder) on desktop and mobile — layout, spacing, hierarchy, first-screen/CTA placement, form polish, images, proof, consistency and mobile behaviour — delivered as the team's client feedback document (clickable summary of numbered fixes, yellow-marked screenshots, Critical / High / Medium / Polish tiers plus "Change now" / "Confirm first" tags) in HTML + PDF, saved in the client's OS folder. No scoring, no audit scale, no test opt-ins or purchases, no pixel/speed/legal checks; that's the funnel-audit skill. Use when the user says "quick design audit", "design review", "design feedback", "audit this page from a design perspective", "look at the design of this page", "give feedback on this page like we did for <client>", or shares a page URL and asks for design notes, from any folder.
+description: Quick design-only review of one landing or funnel page (GoHighLevel preview links, live pages, any builder) on desktop and mobile — layout, spacing, hierarchy, first-screen/CTA placement, form polish, images, proof, consistency and mobile behaviour — delivered as the team's client feedback document (clickable summary of numbered fixes, yellow-marked screenshots, Critical / High / Medium / Polish tiers plus "Change now" / "Confirm first" tags) in HTML + PDF, saved in the client's OS folder. No scoring, no audit scale, no test opt-ins or purchases, no pixel/speed/legal checks; that's the funnel-audit skill. Meant for pages that are designed and written but whose domain and products aren't linked yet; once the funnel is live and connected, run funnel-audit instead (it includes this whole design review). Use when the user says "quick design audit", "design review", "design feedback", "audit this page from a design perspective", "look at the design of this page", "give feedback on this page like we did for <client>", or shares a page URL and asks for design notes, from any folder.
 ---
 
 # Page design review
@@ -8,6 +8,12 @@ description: Quick design-only review of one landing or funnel page (GoHighLevel
 A fast, design-only pass on **one page** (or a whole funnel: then ONE consolidated report for all its pages, fixes numbered across pages and the summary grouped by page), written as feedback a page builder can act
 on. It is **not** the funnel audit: no audit scale or score, no test sign-ups or purchases, no pixel, speed or legal
 page checks, no copy rewrite. If the user wants any of that, point them to `funnel-audit`.
+
+**When to use which:** this skill is for pages that are designed and written but not yet connected (no domain, no
+products/checkout linked). Once the funnel is live and connected, run only `funnel-audit`: its step 4a runs this same
+design checklist (plus scanner flags for first screen, headline length, lone words, wrapping buttons, small text,
+blurry images and fonts), so running both is not needed. When you change the checklist in section 3, make the same
+change in funnel-audit's step 4a.
 
 Typical time: 10–15 minutes per page. Keep the report short; 10–20 fixes is normal.
 
