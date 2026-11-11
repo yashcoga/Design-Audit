@@ -1,6 +1,6 @@
 ---
 name: page-design-review
-description: Quick design-only review of one landing or funnel page (GoHighLevel preview links, live pages, any builder) on desktop and mobile — layout, spacing, hierarchy, first-screen/CTA placement, form polish, images, proof, consistency and mobile behaviour — delivered as the team's client feedback document (clickable summary of numbered fixes, yellow-marked screenshots, Critical / High / Medium / Polish tiers plus "Change now" / "Confirm first" tags) in HTML + PDF, saved in the client's OS folder. No scoring, no audit scale, no test opt-ins or purchases, no pixel/speed/legal checks; that's the funnel-audit skill. Meant for pages that are designed and written but whose domain and products aren't linked yet; once the funnel is live and connected, run funnel-audit instead (it includes this whole design review). Use when the user says "quick design audit", "design review", "design feedback", "audit this page from a design perspective", "look at the design of this page", "give feedback on this page like we did for <client>", or shares a page URL and asks for design notes, from any folder.
+description: Quick design-only review of one landing or funnel page (GoHighLevel preview links, live pages, any builder) on desktop and mobile — layout, spacing, hierarchy, first-screen/CTA placement, form polish, images, proof, consistency and mobile behaviour — delivered as the team's client feedback document (clickable summary of numbered fixes, yellow-marked screenshots, Critical / High / Medium / Polish tiers plus "Change now" / "Confirm first" tags) in HTML + PDF, saved in the client's OS folder. No scoring, no audit scale, no test opt-ins or purchases, no pixel/speed/legal checks; that's the funnel-audit skill. Meant for pages that are designed and written but whose domain and products aren't linked yet; once the funnel is live and connected, run funnel-audit instead (it includes this whole design review). Runs in two modes, quick (same review, report without screenshots) or full (yellow-marked screenshots). Use when the user says "quick design audit", "full design audit", "design review", "design feedback", "audit this page from a design perspective", "look at the design of this page", "give feedback on this page like we did for <client>", or shares a page URL and asks for design notes, from any folder.
 ---
 
 # Page design review
@@ -15,7 +15,24 @@ design checklist (plus scanner flags for first screen, headline length, lone wor
 blurry images and fonts), so running both is not needed. When you change the checklist in section 3, make the same
 change in funnel-audit's step 4a.
 
-Typical time: 10–15 minutes per page. Keep the report short; 10–20 fixes is normal.
+Keep the report short; 10–20 fixes per page is normal.
+
+## Two modes: quick and full (user rule, 2026-11-11)
+
+Both modes do the **same review**: capture, the automatic design flags, looking at every slice desktop and mobile,
+the full checklist in section 3, tiers and actions. The difference is the screenshot work, which was 40–55% of
+past review time (placing markers, crops, checking marked images and the PDF sheet).
+
+| | **Quick** ("quick design audit") | **Full** ("full design audit", "design review" with no mode) |
+|---|---|---|
+| Look at slices + checklist | Yes (a design review needs eyes) | Yes |
+| Zoom/crop checks | Only to settle a real doubt | Anything small you're unsure about |
+| Section 4, marked screenshots | **Skipped** | Yes |
+| Report | Same document, **no images**: every fix says where it is in words | With yellow-marked screenshots |
+| PDF | Yes, no sheet check needed | Yes, check the sheet |
+
+If the user doesn't say which, ask once with clickable options (Quick / Full) and start the capture while waiting.
+Typical time: quick about 5–8 minutes per page, full about 10–15.
 
 ## 1. Set up (1 minute)
 
@@ -34,10 +51,16 @@ Typical time: 10–15 minutes per page. Keep the report short; 10–20 fixes is 
 python ~/.claude/skills/page-design-review/scripts/capture.py "<URL>" --out "<scratchpad>/<page>"
 ```
 
+A whole funnel: pass every page URL in one call (`capture.py URL1 URL2 ... --out "<scratchpad>/<funnel>"`); up to 4
+pages are captured at the same time, each in its own folder.
+
 It writes desktop (1440×900) and mobile (390×844, 2× pixels) full-page shots, first-screen shots, slices to look
 at, `text.txt`, and `facts.json` (headings + sizes + line counts, every button/link and where it goes, form
 button position vs. first screen, sideways scroll, fonts in use, images with natural width). Pixels and form
-posts are blocked.
+posts are blocked. It also prints **automatic design flags** (also in `facts.json` → `flags`): button/form below
+the first screen, headline too long, one word alone on a last line, button text wrapping on mobile, body text under
+16px on mobile, blurry images, more than 3 fonts. They match funnel-audit's checks. Start from them, confirm each on
+the slice (a flag isn't a fix until you've seen it), then do the rest of the checklist by eye.
 
 **Look at every slice** (`desktop-s00.jpg…`, `mobile-s00.jpg…`) and both `*-fold.png`. Crop and zoom
 (PIL) anything small you're unsure about (icons in fields, odd spacing, stray characters) before calling it a
@@ -97,7 +120,9 @@ Summary tables list fixes Critical → High → Medium → Polish; the numbers o
 position on the page. Funnel audit only: tracking/pixel items keep the chip "Highlight · not a launch blocker" and
 OK-as-is notes keep "Note · OK as is".
 
-## 4. Mark up the screenshots
+## 4. Mark up the screenshots (full mode only)
+
+**Quick mode: skip this section.** Go straight to the report.
 
 Write a `marks.json` (format in `scripts/mark.py`) with one yellow number per fix at the exact spot, plus a yellow
 box around the area. Desktop fixes are `1, 2, 3…`; mobile-only fixes are `M1, M2…`. Desktop markers use
@@ -127,6 +152,13 @@ the content, keeping its structure and CSS:
    show **Current** / **Change to** boxes. Every item has a "↑ Back to summary" link.
 7. Mobile sections use the side-by-side layout (`.row` with image left, items right).
 
+**Quick mode report:** same file, structure and CSS, but no images. Drop the `<img>` from every `.fig` section and
+the image column from every mobile `.row` (keep the items). Keep the section headings ("Desktop · Hero and form",
+"Mobile · Proof and sections") so each fix sits under the part of the page it's about, and give every item a short
+"Where:" line in words ("Hero, left column, under the 3 bullets"; "Mobile, second button under the price box").
+"How to read this" says the numbers match the summary (not screenshots). For a whole funnel: one section group
+per page.
+
 Writing style: plain words, short sentences, concrete numbers ("about 330px of empty space", "button at ~1,370px
 on a 900px screen"), no design jargon without explanation. Written for the page builder and the client team.
 
@@ -136,7 +168,8 @@ Then make the PDF and check it:
 python ~/.claude/skills/page-design-review/scripts/to_pdf.py "<funnel>/qa/design-feedback.html" "<funnel>/qa/<Client> - <Page> - Design Feedback (<Mon D>).pdf" --sheet "<scratchpad>/sheet.png"
 ```
 
-Look at the sheet: no blank pages, images not cut off, summary fits.
+Full mode: look at the sheet (no blank pages, images not cut off, summary fits). Quick mode: no images, so just
+check the script printed no errors.
 
 ## 6. Hand over
 
